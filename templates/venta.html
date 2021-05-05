@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venta</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}">
+  <script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js')}}"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+<body>
+  <section class="form-productos">
+
+    <div class="options-caja">
+      <h2 class="izquierda">Productos</h2>
+      <input class="controls-productos izquierda" type="text" name="buscar" id="buscar" value="" placeholder="Buscar Producto" onkeyup="busqueda()">
+    </div>
+
+    <!--Espacio para mensaje de error-->
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    <br>
+    {% endfor %}
+
+    <div id="lista-productos" class="menu izquierda lista-productos">
+
+      {% for reg in regs %}
+        <div class="card-box izquierda">
+          <h4>{{ reg[1] }}</h4>
+          <div>
+            <img src="{{ url_for('static',filename=reg[3]) }}" width="100px" alt="producto_img">
+            <h5 class="precio">Precio: <span>{{ reg[2] }}</span></h5>
+            <a href="#" class="agregar-carrito fas fa-cart-plus" style="font-size:24px" data-id="{{ reg[0] }}"></a>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+
+    <div class="registro derecha">
+      
+      <div id="carrito">
+        <table id="lista-carrito">
+          <thead>
+            <tr>
+              <th colspan="4">Carrito</th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <input  class="registro-buttons"  type="submit" id="limpiarCarrito" name="limpiarCarrito" value="Limpiar carrito">
+      <form action="/compra/" method='POST'>
+        <input type="hidden" name="userId" value = "{{id}}">
+        <input  class="registro-buttons"  type="submit" name="registrarVenta" value="Registrar venta">
+      </form>
+    </div>
+  </section>
+  <div class="centrado">
+    <a href="/regCaja/">
+    <input class="button-regresar"  type="submit" name="" value="Regresar">
+    </a>
+  </div>
+
+  <script src="{{ url_for('static',filename='js/carrito.js')}}"></script>
+  <script src="{{ url_for('static',filename='js/pedido.js')}}"></script>
+  <script src="{{ url_for('static',filename='js/compra.js')}}"></script>
+  <script src="{{ url_for('static',filename='js/validacion.js')}}"></script>
+
+</body>
+</html>
+

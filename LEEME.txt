@@ -1,0 +1,21 @@
+Se debe crear un entorno env, instalar los paquetes flask, validate email y 
+finalmente copiar las carpetas static,templates,hola.py y utils.py. Incializar el env junto
+con ell flask_app, flask_env y flask run
+
+Login Administrador:
+Usuario=admin0
+Contraseña= Admin123.
+
+Login Cajero
+Usuario= Los creados en la DB
+Contraseña= Prueba123. --- Todos los que hansido creados tienen esa misma contraseña
+
+Registro Cajero:
+Tener en cuenta
+Usuuario : [a-zA-Z0-9_.-]+$"
+Contraseña :(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\W_]{8,}$"
+
+---------------------------------
+Correo cafeteria: cafeteriabrioche.grupoa@gmail.com
+contraseña: Prueba_01
+

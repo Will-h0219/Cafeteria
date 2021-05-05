@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Cajero</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <script src="{{ url_for('static',filename='js/validacion.js')}}"></script>
+</head>
+<body>
+    <section class="form-login">
+        <H5>Registro Cajero</H5>
+
+        <!--Espacio para mensaje de error-->
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        <br>
+        {% endfor %}
+
+        <form action="/registrarCajero/" method="POST" onsubmit=" return validar_formulario();">
+        <input  class="controls" type="text" name="usuario" placeholder="Usuario">
+        <input class="controls" type="password" name="clave"  placeholder="Contraseña">
+        <input class="controls" type="email" name="correo"  placeholder="Correo">
+        <input  class="buttons"  type="submit" value="Registrar">
+        
+        </form>
+
+        <a href="/regAdmin/">
+            <input  class="buttons"  type="submit" name="" value="Regresar">
+        </a>
+    </section>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recuperar Contraseña</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <script src="{{ url_for('static',filename='js/validacion.js')}}"></script>
+</head>
+<body>
+    <section class="form-logincajero">
+        <H5>Recuperar Contraseña</H5>
+
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        <br>
+        {% endfor %}
+        
+        <form action="/recuperarContrasena3/" method="POST" onsubmit="return validar_pwd();">
+            <input class="controls" type="hidden" name="userId" value="{{userId}}">
+            <input class="controls" type="password" name="newPassword" id="newPassword" value="" placeholder="Nueva Contraseña">
+            <input class="controls" type="password" name="verPassword" id="verPassword" value="" placeholder="Verificar Contraseña">
+            <input class="buttons"  type="submit" name="" value="Enviar">
+        </form>
+        <form action="/loginCajero/">
+            <input  class="buttons"  type="submit" name="" value="Regresar">
+        </form>
+        
+    </section>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<style type="text/css">
+    h2{text-align:center;color:rgb(250, 246, 246)} 
+</style>
+<body>
+    <h1 class="titulo">Cafeteria Brioche</h1>
+    <br>
+    <div class="barra">
+        <h2 class="izquierda">Interfaz Administrador</h2>
+        <a href="/logout">
+            <input class="button-logout derecha" type="submit" value="Cerrar Sesión">
+        </a>
+    </div>
+    <hr>
+    
+    <div class="centrar-flex">
+        <div class="form-inicio2">
+        <H5>Cajeros</H5>
+        <form action="/registroCajero/">
+                <input  class="buttons"  type="submit" name="" value="Registrar">
+        </form>
+        <form action="/modificarCajero/">
+                <input  class="buttons"  type="submit" name="" value="Modificar / Eliminar">
+            </form>
+                
+        </div>
+        <div class="form-inicio2">
+            <H5>Productos</H5>
+            <form action="/registroProducto/">
+            <input  class="buttons"  type="submit" name="" value="Ingresar">
+            </form>
+            <form action="/modificarProducto/">
+                <input  class="buttons"  type="submit" name="" value="Modificar / Eliminar">
+            </form>
+            
+        </div>
+        <div class="form-inicio2">
+            <H5>Balance general</H5>
+            <form action="/balance/">
+            <input  class="buttons"  type="submit" name="" value="Ingresar">
+            </form>
+        </div>
+    </div>
+  
+          
+</body>
+</html>

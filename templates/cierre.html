@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cierre de caja</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <h1 class="titulo">Cafetería Brioche</h1>
+  
+    <section class="form-logincajero"></center>
+        <center> <h3> Cierre de caja</h3>
+            <br>
+
+        <!--Espacio para mensaje de error-->
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        <br>
+        {% endfor %}
+
+        <form action="/cierreCaja/", method='POST'>
+        <input  class="controls" type="text" name="efectivo" value="" placeholder="Dinero en efectivo">
+        <input class="controls" type="date" name="fecha" value="" placeholder="Fecha de cierre" min="2020-01-01" max="2020-12-31">
+        <input  class="buttons"  type="submit" name="" value="Registrar">
+        </form>
+        <a href="/regCaja/">
+        <input  class="buttons"  type="submit" name="" value="Regresar">
+        </a>
+    </section>
+</body>
+</html>

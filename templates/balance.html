@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance General</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <h1 class="titulo">Cafetería Brioche</h1>
+
+    <section class="form-login">
+        <h3>Balance General</h3>
+
+        <!--Espacio para mensaje de error-->
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        <br>
+        {% endfor %}
+        
+        <form action="/generarBalance/" method="POST">
+            <input class="controls" type="date" name="fecha" value="" placeholder="Seleccione la fecha a consultar" min="2020-01-01" max="2020-12-31">
+            <input  class="buttons"  type="submit" name="" value="Descargar CSV">
+        </form>
+        <form action="/regAdmin/">
+            <input  class="buttons"  type="submit" name="" value="Regresar">
+        </form>
+     
+    </section>
+</body>
+</html>

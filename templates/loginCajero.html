@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login Cajero</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <script src="{{ url_for('static',filename='js/validacion.js')}}"></script>
+</head>
+<body>
+    <section class="form-logincajero">
+        <H5>Cajero</H5>
+
+        <!--Mensaje de error en caso de que falten o sean erroneos los datos-->
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        <br>
+        {% endfor %}
+
+        <form action="/caja/" method="POST" onsubmit="return validar_formulario();">
+        <input  class="controls" type="text" name="usuario" value="" placeholder="Usuario">
+        <input class="controls" type="password" name="clave" value="" placeholder="Contraseña">
+        <input  class="buttons"  type="submit" name="" value="Ingresar">
+        </form>
+        <form action="/">
+        <input  class="buttons"  type="submit" name="" value="Regresar">
+        </form>
+        
+        <p><a href="/recuperarContrasena/">¿Olvidaste tu contraseña?</a></p>
+       
+    </section>
+</body>
+</html>

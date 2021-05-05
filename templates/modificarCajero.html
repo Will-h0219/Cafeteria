@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modificar Cajero</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <section class="form-login">
+        <H5>Cajero</H5>
+
+        <!--Espacio para mensaje de error-->
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        <br>
+        {% endfor %}
+
+        <form action="/selectCajero/" method='POST'>
+            <input class="controls" type="email" name="correo" value="" placeholder="Correo">
+            <input class="buttons"  type="submit" name="modificar" value="Modificar">
+        </form>
+
+        <a href="/regAdmin/">
+            <input  class="buttons"  type="submit" name="" value="Regresar">
+            </a>
+    </section>
+</body>
+</html>

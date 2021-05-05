@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modificar Producto</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <section class="form-login">
+        <H5>Producto</H5>
+        <form action="/selectProduct/" method='POST'>
+            <input class="controls" type="text" name="productId" value="" placeholder="ID">
+            <input class="buttons"  type="submit" name="Modificar" value="Modificar">
+        </form>
+
+        <a href="/regAdmin">
+            <input  class="buttons"  type="submit" name="" value="Regresar">
+        </a>
+    </section>
+</body>
+</html>

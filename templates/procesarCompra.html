@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <title>Procesar Compra</title>
+
+</head>
+<section class="form-productos">
+<body>
+    <main>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col">
+                    <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
+
+                    <!--Espacio para mensaje de error-->
+                    {% for message in get_flashed_messages() %}
+                    <div class="flash">{{ message }}</div>
+                    <br>
+                    {% endfor %}
+
+                    <form id="procesar-pago" action="/registroCompra/" method="post">
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente"placeholder="Ingresa nombre cliente" name="destinatario">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="correo" placeholder="Ingresa tu correo" name="cc_to">
+                            </div>
+                        </div>
+
+                        <div id="carrito" class="form-group table-responsive" >
+                            <table class="table" id="lista-compra" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Sub Total</th>
+                                        <th scope="col">Eliminar</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody >
+
+                                </tbody>
+                                <tr>
+                                    <th colspan="4" scope="col" class="text-right">SUB TOTAL :</th>
+                                    <th scope="col">
+                                        <p id="subtotal"></p>
+                                    </th>
+                                    <!-- <th scope="col"></th> -->
+                                </tr>
+                                <tr>
+                                    <th colspan="4" scope="col" class="text-right">IVA :</th>
+                                    <th scope="col">
+                                        <p id="iva"></p>
+                                    </th>
+                                    <!-- <th scope="col"></th> -->
+                                </tr>
+                                <tr>
+                                    <th colspan="4" scope="col" class="text-right">TOTAL :</th>
+                                    <th scope="col">
+                                        <p id="total"></p>
+                                    </th>
+                                    <!-- <th scope="col"></th> -->
+                                </tr>
+
+                            </table>
+                        </div>
+
+                        <div class="row centrar-flex">
+                            
+                            <div class="col-xs-12 col-md-4">
+                                <input type="hidden" name="userId" value = "{{id}}">
+                                <input type="hidden" name="f1t1" id="f1t1">
+                                <input type="submit" class="btn btn-success btn-block" name="Procesar" value="Procesar">
+                            </div>
+                        </div>
+                    </form>
+
+                    <br>
+                    
+                    <div class="row centrar-flex">
+                        <div class="col-md-4 mb-2">
+                            <form action="/venta/" method='POST'>
+                                <input type="hidden" name="userId" value = "{{id}}">
+                                <input type = "submit" class="btn btn-info btn-block" name = "seguirComprando" value = "Seguir comprando">
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    </div>
+
+ </section>
+
+    <script src="{{ url_for('static',filename='js/carrito.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/pedido.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/compra.js')}}"></script>
+
+</body>
+
+</html>

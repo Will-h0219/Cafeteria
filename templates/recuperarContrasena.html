@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recuperar Contraseña</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <section class="form-logincajero">
+        <H5>Recuperar Contraseña</H5>
+
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        <br>
+        {% endfor %}
+        
+        <form action="/enviarCorreo/" method="POST">
+            <input class="controls" type="email" name="correo" value="" placeholder="Correo">
+            <input  class="buttons"  type="submit" name="" value="Enviar">
+        </form>
+        <form action="/loginCajero/">
+            <input  class="buttons"  type="submit" name="" value="Regresar">
+        </form>
+        
+    </section>
+</body>
+</html>

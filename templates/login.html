@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<style type="text/css">
+    h2{text-align:center;color:rgb(250, 246, 246)} 
+</style>
+<body>
+    <h1 class="titulo">Cafeteria Brioche</h1>
+    <div class="centrar-flex">
+        <form action="/loginAdministrador/">
+            <div class="form-inicio">
+            <H5>Administrador</H5>
+            <input  class="buttons"  type="submit" name="" value="Ingresar">
+                
+            </div>
+        </form>
+        <form action="/loginCajero/">
+            <div class="form-inicio">
+                <H5>Cajero</H5>
+                <input  class="buttons"  type="submit" name="" value="Ingresar">
+            </div>
+        </form>
+    </div>
+    
+     
+     
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recuperar Productos</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <section class="form-login">
+        <H5>Registrar Producto</H5>
+
+        <!--Espacio para mensaje de error-->
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        <br>
+        {% endfor %}
+
+        <form action="/registrarProducto/"  method="POST" onsubmit="return validar_formulario();" enctype="multipart/form-data">
+            <input class="controls" type="text" name="id" value="" placeholder="ID">
+            <input class="controls" type="text" name="nombre"  placeholder="Nombre">
+            <input class="controls" type="text" name="precio"  placeholder="Precio Unitario">
+            <input class="controls" type="file" name="imagen" placeholder="Imagen">
+        <input  class="buttons"  type="submit" name="" value="Registrar">
+        </form>
+        <a href="/regAdmin/">
+            <input  class="buttons"  type="submit" name="" value="Regresar">
+            </a>
+        
+    </section>
+</body>
+</html>
